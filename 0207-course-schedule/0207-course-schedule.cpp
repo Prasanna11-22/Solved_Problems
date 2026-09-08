@@ -1,53 +1,40 @@
 class Solution {
 public:
-vector<bool> vis;
-vector<bool> inpath; 
-
-bool dfs(int n,int par,vector<vector<int>> &adj)
-{
-    vis[n]=true;
-    inpath[n]=true;
-
-    for(auto nei : adj[n])
+    bool canFinish(int numc, vector<vector<int>>& prereq) 
     {
-        if(!vis[nei])
+        vector<vector<int>> adj(numc);
+        vector<int> indeg(numc,0);
+        vector<int> res;
+        for(int i=0;i<prereq.size();i++)
         {
-            if(dfs(nei,n,adj))
+            int u=prereq[i][0];
+            int v=prereq[i][1];
+            adj[v].push_back(u);
+            indeg[u]++;
+        }
+
+        queue<int> q;
+        for(int i=0;i<numc;i++)
+        {
+            if(indeg[i]==0) q.push(i);
+        }
+
+        while(!q.empty())
+        {
+            int node=q.front();
+            q.pop();
+            res.push_back(node);
+
+            for(auto nei : adj[node])
             {
-                return true;
+                indeg[nei]--;
+                if(indeg[nei]==0) q.push(nei);
             }
         }
-        else if(inpath[nei])
-        {
-            return true;
-        }
-    }
 
-    inpath[n]=false;
-    return false;
-}
-    bool canFinish(int nums, vector<vector<int>>& preq) {
-        vis.assign(nums,false);
-        inpath.assign(nums,false);
-        vector<vector<int>> adj(nums);
+        if(res.size()==numc) return true;
 
-        for(auto k : preq)
-        {
-            int u=k[0];
-            int v=k[1];
-            adj[u].push_back(v);
-        }
-
-        for(int i=0;i<nums;i++)
-        {
-                if(!vis[i]) 
-                {
-                    if(dfs(i,-1,adj))
-                    {
-                        return false;
-                    }
-                }
-        }
-        return true;
+        return false;
+        
     }
 };

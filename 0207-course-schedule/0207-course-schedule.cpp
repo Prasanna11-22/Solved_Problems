@@ -4,7 +4,8 @@ public:
     {
         vector<vector<int>> adj(numc);
         vector<int> indeg(numc,0);
-        vector<int> res;
+        //vector<int> res;
+        int cnt=0;
         for(int i=0;i<prereq.size();i++)
         {
             int u=prereq[i][0];
@@ -23,8 +24,8 @@ public:
         {
             int node=q.front();
             q.pop();
-            res.push_back(node);
-
+            //res.push_back(node);
+            cnt++;
             for(auto nei : adj[node])
             {
                 indeg[nei]--;
@@ -32,7 +33,7 @@ public:
             }
         }
 
-        if(res.size()==numc) return true;
+        if(cnt==numc) return true;
 
         return false;
         

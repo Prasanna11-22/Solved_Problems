@@ -4,7 +4,6 @@ public:
     {
         vector<vector<int>> adj(numc);
         vector<int> indeg(numc,0);
-        //vector<int> res;
         int cnt=0;
         for(int i=0;i<prereq.size();i++)
         {
@@ -24,7 +23,6 @@ public:
         {
             int node=q.front();
             q.pop();
-            //res.push_back(node);
             cnt++;
             for(auto nei : adj[node])
             {

@@ -1,53 +1,33 @@
 class Solution {
 public:
+void dfs(int src,int node,vector<vector<int>>&adj,vector<int>&vis,vector<vector<int>>&ans)
+{
+    for(auto nei : adj[node])
+    {
+        if(vis[nei]) continue;
+
+        vis[nei]=1;
+        ans[nei].push_back(src);
+        dfs(src,nei,adj,vis,ans);
+    }
+}
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
 
         vector<vector<int>> adj(n);
         vector<vector<int>> ans(n);
-        vector<set<int>> res(n);
-        vector<int> indeg(n,0);
+
         for(auto i : edges)
         {
             adj[i[0]].push_back(i[1]);
-            indeg[i[1]]++;
         }
-
-        queue<int> q;
 
         for(int i=0;i<n;i++)
         {
-            if(indeg[i]==0) q.push(i);
+            vector<int> vis(n,0);
+            dfs(i,i,adj,vis,ans);
         }
 
-        while(!q.empty())
-        {
-            int node=q.front();
-            q.pop();
-
-            for(auto nei : adj[node])
-            {
-                res[nei].insert(node);
-
-                for( auto par : res[node])
-                {
-                    res[nei].insert(par);
-                }
-                indeg[nei]--;
-                if(indeg[nei]==0) q.push(nei);
-
-            }
-
-        }
-
-        for(auto i=0;i<n;i++)
-        {
-            for(auto j : res[i])
-            {
-                ans[i].push_back(j);
-            }
-        }
-
-return ans;
+        return ans;
 
         
     }

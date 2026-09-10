@@ -19,17 +19,16 @@ pair<int,int> dfs(TreeNode* root)
     auto left=dfs(root->left);
     auto right=dfs(root->right);
 
-    //cout<<root->val<<" "<<left.first<<" "<<right.first;
-
     int val=left.first+root->val+right.first;
     int llen=left.second;
     int rlen=right.second;
-    int avg=(val/(llen+rlen+1));
+    int cnt=llen+rlen+1;
+    int avg=(val/(cnt));
 
     if(root->val==avg) ans++;
 
 
-    return {val,llen + rlen + 1};
+    return {val,cnt};
 }
     int averageOfSubtree(TreeNode* root) {
         dfs(root);

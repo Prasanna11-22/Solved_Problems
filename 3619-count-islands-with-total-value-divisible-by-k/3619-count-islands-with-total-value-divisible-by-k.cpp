@@ -1,37 +1,64 @@
 class Solution {
 public:
-int r,c;
+    int rows,cols;
 
-long long dfs(int i,int j,vector<vector<int>>& grid)
-{
-    if(i<0||j<0||i>=r||j>=c||grid[i][j]==0) return 0;
+    long long bfs(vector<vector<int>>& grid,vector<vector<bool>>& visited,int startI,int startJ)
+    {
+        queue<pair<int,int>>q;
+        q.push({startI,startJ});
+        visited[startI][startJ]=true;
 
-    int val=grid[i][j];
-    grid[i][j]=0;
+       long long sum=0;
 
-    return val+dfs(i+1,j,grid)+dfs(i,j+1,grid)+dfs(i-1,j,grid)+dfs(i,j-1,grid);
+        int dir[4][2]={{-1,0},{1,0},{0,-1},{0,1}};
 
-}
-    int countIslands(vector<vector<int>>& grid, int k) {
-        int cnt=0;
-        r=grid.size(),c=grid[0].size();
-        for(int i=0;i<r;i++)
+        while(!q.empty())
         {
-            for(int j=0;j<c;j++)
-            {
-                if(grid[i][j]!=0)
-                {
-                    long long res = dfs(i,j,grid);
+            auto[i,j]=q.front();
+            q.pop();
 
-                    if(res!=0&&res%k==0)
+            sum+=grid[i][j];
+            for(int d=0;d<4;d++)
+                {
+                    int ni=i+dir[d][0];
+                    int nj=j+dir[d][1];
+                
+            if(ni>=0&&ni<rows&&nj>=0&&nj<cols&&grid[ni][nj]!=0&&!visited[ni][nj])
+            {
+                visited[ni][nj]=true;
+                q.push({ni,nj});
+            }
+    }
+                
+    }
+        return sum;
+    }
+int countIslands(vector<vector<int>>& grid, int k) 
+{
+    rows=grid.size();
+    if(rows==0) return 0;
+    cols=grid[0].size();
+
+    vector<vector<bool>>
+    visited(rows,vector<bool>(cols,false));
+    int count=0;
+
+    for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<cols;j++)
+                {
+                    if(grid[i][j]!=0&&!visited[i][j])
                     {
-                        cnt++;
+                       long long island=bfs(grid,visited,i,j);
+                        if(island%k==0)
+                        {
+                            count++;
+                        }
                     }
                 }
-            }
+            
         }
-
-        return cnt;
-        
-    }
+return count;
+       
+}
 };

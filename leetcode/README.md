@@ -4,12 +4,14 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Array
 |  |
 | ------- |
+| [0453-minimum-moves-to-equal-array-elements](https://github.com/Prasanna11-22/Solved_Problems/tree/master/LeetCode/0453-minimum-moves-to-equal-array-elements) |
 | [0462-minimum-moves-to-equal-array-elements-ii](https://github.com/Prasanna11-22/Solved_Problems/tree/master/LeetCode/0462-minimum-moves-to-equal-array-elements-ii) |
 | [2538-minimum-cost-to-make-array-equal](https://github.com/Prasanna11-22/Solved_Problems/tree/master/LeetCode/2538-minimum-cost-to-make-array-equal) |
 | [4116-minimum-moves-to-equal-array-elements-iii](https://github.com/Prasanna11-22/Solved_Problems/tree/master/LeetCode/4116-minimum-moves-to-equal-array-elements-iii) |
 ## Math
 |  |
 | ------- |
+| [0453-minimum-moves-to-equal-array-elements](https://github.com/Prasanna11-22/Solved_Problems/tree/master/LeetCode/0453-minimum-moves-to-equal-array-elements) |
 | [0462-minimum-moves-to-equal-array-elements-ii](https://github.com/Prasanna11-22/Solved_Problems/tree/master/LeetCode/0462-minimum-moves-to-equal-array-elements-ii) |
 | [4116-minimum-moves-to-equal-array-elements-iii](https://github.com/Prasanna11-22/Solved_Problems/tree/master/LeetCode/4116-minimum-moves-to-equal-array-elements-iii) |
 ## Sorting

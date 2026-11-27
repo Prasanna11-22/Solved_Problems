@@ -46,4 +46,20 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [1710-find-servers-that-handled-most-number-of-requests](https://github.com/Prasanna11-22/Solved_Problems/tree/master/LeetCode/1710-find-servers-that-handled-most-number-of-requests) |
+## Hash Table
+|  |
+| ------- |
+| [0208-implement-trie-prefix-tree](https://github.com/Prasanna11-22/Solved_Problems/tree/master/LeetCode/0208-implement-trie-prefix-tree) |
+## String
+|  |
+| ------- |
+| [0208-implement-trie-prefix-tree](https://github.com/Prasanna11-22/Solved_Problems/tree/master/LeetCode/0208-implement-trie-prefix-tree) |
+## Design
+|  |
+| ------- |
+| [0208-implement-trie-prefix-tree](https://github.com/Prasanna11-22/Solved_Problems/tree/master/LeetCode/0208-implement-trie-prefix-tree) |
+## Trie
+|  |
+| ------- |
+| [0208-implement-trie-prefix-tree](https://github.com/Prasanna11-22/Solved_Problems/tree/master/LeetCode/0208-implement-trie-prefix-tree) |
 <!---LeetCode Topics End-->
